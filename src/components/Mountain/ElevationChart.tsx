@@ -36,8 +36,8 @@ const ElevationChart = ({ data }: ElevationChartProps) => {
                         tickLine={false}
                     />
                     <Tooltip
-                        formatter={(val: number) => [`${Math.round(val)}m`, 'Elevation']}
-                        labelFormatter={(val: number) => `Distance: ${(val / 1000).toFixed(2)} km`}
+                        formatter={(val: any) => [`${Math.round(val)}m`, 'Elevation']}
+                        labelFormatter={(val: any) => `Distance: ${(val / 1000).toFixed(2)} km`}
                         contentStyle={{ borderRadius: '8px', border: 'none', boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1)' }}
                     />
                     <Area
