@@ -45,13 +45,13 @@ export default async function MountainPage({ params }: { params: Promise<{ id: s
                     </Link>
                 </div>
 
-                <div className="absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-slate-900 to-transparent">
+                <div className="absolute bottom-0 left-0 right-0 px-8 pt-32 pb-24 bg-gradient-to-t from-slate-900 via-slate-900/80 to-transparent">
                     <div className="max-w-7xl mx-auto">
                         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
                             <div>
                                 <span className={`inline-block px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-3 backdrop-blur-sm ${mountain.difficulty === 'Easy' ? 'bg-green-500/80 text-white' :
-                                        mountain.difficulty === 'Moderate' ? 'bg-yellow-500/80 text-white' :
-                                            'bg-red-500/80 text-white'
+                                    mountain.difficulty === 'Moderate' ? 'bg-yellow-500/80 text-white' :
+                                        'bg-red-500/80 text-white'
                                     }`}>
                                     {mountain.difficulty} Level
                                 </span>
