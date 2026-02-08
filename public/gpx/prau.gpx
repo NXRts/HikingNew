@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<gpx xmlns="http://www.topografix.com/GPX/1/1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd" version="1.1" creator="gpx-poidb.com">
+   <trk>
+      <name>Gunung Prau</name>
+      <trkseg>
+         <trkpt lat="-7.1878" lon="109.9300"><ele>2565</ele></trkpt>
+         <trkpt lat="-7.1850" lon="109.9250"><ele>2500</ele></trkpt>
+         <trkpt lat="-7.1800" lon="109.9200"><ele>2400</ele></trkpt>
+         <trkpt lat="-7.1750" lon="109.9150"><ele>2300</ele></trkpt>
+      </trkseg>
+   </trk>
+</gpx>

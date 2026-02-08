@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<gpx xmlns="http://www.topografix.com/GPX/1/1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd" version="1.1" creator="gpx-poidb.com">
+   <trk>
+      <name>Gunung Merbabu</name>
+      <trkseg>
+         <trkpt lat="-7.4550" lon="110.4400"><ele>3145</ele></trkpt>
+         <trkpt lat="-7.4500" lon="110.4350"><ele>2900</ele></trkpt>
+         <trkpt lat="-7.4450" lon="110.4300"><ele>2700</ele></trkpt>
+         <trkpt lat="-7.4400" lon="110.4250"><ele>2500</ele></trkpt>
+      </trkseg>
+   </trk>
+</gpx>

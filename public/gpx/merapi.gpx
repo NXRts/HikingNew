@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<gpx xmlns="http://www.topografix.com/GPX/1/1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd" version="1.1" creator="gpx-poidb.com">
+   <trk>
+      <name>Gunung Merapi</name>
+      <trkseg>
+         <trkpt lat="-7.514080" lon="110.450360">
+            <ele>1873</ele>
+         </trkpt>
+         <trkpt lat="-7.515860" lon="110.449830">
+            <ele>1950</ele>
+         </trkpt>
+         <trkpt lat="-7.520790" lon="110.447540">
+            <ele>2150</ele>
+         </trkpt>
+         <trkpt lat="-7.527330" lon="110.444260">
+            <ele>2400</ele>
+         </trkpt>
+         <trkpt lat="-7.533280" lon="110.441880">
+            <ele>2650</ele>
+         </trkpt>
+         <trkpt lat="-7.538560" lon="110.444150">
+            <ele>2850</ele>
+         </trkpt>
+         <trkpt lat="-7.540700" lon="110.445700">
+            <ele>2930</ele>
+         </trkpt>
+      </trkseg>
+   </trk>
+</gpx>
