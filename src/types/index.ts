@@ -6,6 +6,7 @@ export interface Mountain {
   description: string;
   location: [number, number]; // [lat, lng]
   gpxUrl: string;
+  imageUrl?: string;
 }
 
 export interface Waypoint {

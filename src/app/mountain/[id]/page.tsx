@@ -23,10 +23,8 @@ export default async function MountainPage({ params }: { params: Promise<{ id: s
         elevation: mountain.elevation - 1000 + Math.random() * 500 + (i * 50)
     }));
 
-    // Dynamic background based on mountain ID
-    const bgImage = mountain.id === 'merapi' ? "https://images.unsplash.com/photo-1605649487215-476786814631?q=80&w=2070" :
-        mountain.id === 'merbabu' ? "https://images.unsplash.com/photo-1594928172960-e883a9687985?q=80&w=2673" :
-            "https://images.unsplash.com/photo-1549615555-53bb3b2462bc?q=80&w=2070";
+    // Background based on mountain imageUrl
+    const bgImage = mountain.imageUrl || "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=2070&auto=format&fit=crop";
 
     return (
         <div className="min-h-screen bg-slate-50 pb-24">
