@@ -100,16 +100,15 @@ export default function Home() {
                 viewport={{ once: true }}
                 className="bg-white rounded-3xl overflow-hidden shadow-sm border border-slate-100 hover:shadow-2xl transition-all duration-300 h-full flex flex-col"
               >
-                {/* Image Placeholder */}
                 <div className="relative h-48 bg-slate-200 overflow-hidden">
-                  <div className={`absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110 ${mountain.id === 'merapi' ? "bg-[url('https://images.unsplash.com/photo-1605649487215-476786814631?q=80&w=2070')]" :
-                      mountain.id === 'merbabu' ? "bg-[url('https://images.unsplash.com/photo-1594928172960-e883a9687985?q=80&w=2673')]" :
-                        "bg-[url('https://images.unsplash.com/photo-1549615555-53bb3b2462bc?q=80&w=2070')]"
-                    }`} />
+                  <div
+                    className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
+                    style={{ backgroundImage: mountain.imageUrl ? `url('${mountain.imageUrl}')` : undefined }}
+                  />
                   <div className="absolute top-4 right-4">
                     <span className={`text-xs font-bold px-3 py-1.5 rounded-full backdrop-blur-md ${mountain.difficulty === 'Easy' ? 'bg-green-500/90 text-white' :
-                        mountain.difficulty === 'Moderate' ? 'bg-yellow-500/90 text-white' :
-                          'bg-red-500/90 text-white'
+                      mountain.difficulty === 'Moderate' ? 'bg-yellow-500/90 text-white' :
+                        'bg-red-500/90 text-white'
                       }`}>
                       {mountain.difficulty}
                     </span>
