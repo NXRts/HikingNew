@@ -105,12 +105,18 @@ export default function Home() {
                     className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
                     style={{ backgroundImage: mountain.imageUrl ? `url('${mountain.imageUrl}')` : undefined }}
                   />
-                  <div className="absolute top-4 right-4">
+                    <div className="absolute top-4 right-4 flex gap-2">
                     <span className={`text-xs font-bold px-3 py-1.5 rounded-full backdrop-blur-md ${mountain.difficulty === 'Easy' ? 'bg-green-500/90 text-white' :
                       mountain.difficulty === 'Moderate' ? 'bg-yellow-500/90 text-white' :
                         'bg-red-500/90 text-white'
                       }`}>
                       {mountain.difficulty}
+                    </span>
+                    <span className={`text-xs font-bold px-3 py-1.5 rounded-full backdrop-blur-md ${mountain.status === 'Open' ? 'bg-emerald-500/90 text-white' :
+                      mountain.status === 'Warning' ? 'bg-amber-500/90 text-white' :
+                        'bg-rose-500/90 text-white'
+                      }`}>
+                      {mountain.status}
                     </span>
                   </div>
                 </div>

@@ -1,6 +1,6 @@
-'use client';
-
-import { Cloud, Sun, Wind, Droplets } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { Cloud, Sun, Wind, Droplets, Loader2, CloudRain, CloudLightning, SunDim } from 'lucide-react';
+import { getWeatherData, WeatherData } from '@/lib/weather';
 
 interface WeatherWidgetProps {
     lat: number;
@@ -9,40 +9,64 @@ interface WeatherWidgetProps {
 }
 
 const WeatherWidget = ({ lat, lon, elevation }: WeatherWidgetProps) => {
-    // TODO: Integrate OpenWeatherMap API
-    // constant for now
-    const weather = {
-        temp: Math.round(20 - (elevation || 0) / 1000 * 6), // simple lapse rate approximation
-        condition: 'Partly Cloudy',
-        wind: 15,
-        humidity: 70,
+    const [weather, setWeather] = useState<WeatherData | null>(null);
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        const fetchWeather = async () => {
+            setLoading(true);
+            const data = await getWeatherData(lat, lon, elevation);
+            setWeather(data);
+            setLoading(false);
+        };
+        fetchWeather();
+    }, [lat, lon, elevation]);
+
+    if (loading) {
+        return (
+            <div className="flex items-center justify-center p-8 text-white/50">
+                <Loader2 className="w-6 h-6 animate-spin" />
+            </div>
+        );
+    }
+
+    if (!weather) return null;
+
+    const WeatherIcon = () => {
+        const cond = weather.condition.toLowerCase();
+        if (cond.includes('rain')) return <CloudRain className="w-8 h-8 text-blue-400" />;
+        if (cond.includes('cloud')) return <Cloud className="w-8 h-8 text-blue-300" />;
+        if (cond.includes('clear')) return <Sun className="w-8 h-8 text-yellow-400" />;
+        if (cond.includes('storm')) return <CloudLightning className="w-8 h-8 text-indigo-400" />;
+        return <SunDim className="w-8 h-8 text-slate-400" />;
     };
 
     return (
-        <div className="bg-white/90 backdrop-blur-md rounded-2xl p-4 shadow-lg border border-white/20 w-full max-w-xs">
-            <div className="flex items-center justify-between mb-4">
+        <div className="w-full">
+            <div className="flex items-center justify-between mb-6">
                 <div>
-                    <h3 className="text-lg font-bold text-slate-800">Mountain Weather</h3>
-                    <p className="text-xs text-slate-500">{(elevation || 0)}m elevation</p>
+                    <h3 className="text-4xl font-bold">{weather.temp}°</h3>
+                    <p className="text-white/70 text-sm font-medium">{weather.condition}</p>
                 </div>
-                <div className="p-2 bg-blue-50 rounded-full">
-                    <Cloud className="w-6 h-6 text-blue-500" />
+                <div className="p-3 bg-white/10 rounded-2xl">
+                    <WeatherIcon />
                 </div>
             </div>
 
-            <div className="flex items-end gap-2 mb-4">
-                <span className="text-4xl font-bold text-slate-800">{weather.temp}°</span>
-                <span className="text-sm text-slate-500 mb-1">C</span>
-            </div>
-
-            <div className="grid grid-cols-2 gap-3">
-                <div className="flex items-center gap-2 p-2 bg-slate-50 rounded-lg">
-                    <Wind className="w-4 h-4 text-slate-400" />
-                    <span className="text-sm font-medium text-slate-600">{weather.wind} km/h</span>
+            <div className="grid grid-cols-2 gap-4">
+                <div className="flex items-center gap-3 p-3 bg-white/10 rounded-2xl">
+                    <Wind className="w-5 h-5 text-cyan-300" />
+                    <div>
+                        <p className="text-[10px] uppercase font-bold text-white/50">Wind</p>
+                        <p className="text-sm font-bold">{Math.round(weather.wind)} kmh</p>
+                    </div>
                 </div>
-                <div className="flex items-center gap-2 p-2 bg-slate-50 rounded-lg">
-                    <Droplets className="w-4 h-4 text-slate-400" />
-                    <span className="text-sm font-medium text-slate-600">{weather.humidity}%</span>
+                <div className="flex items-center gap-3 p-3 bg-white/10 rounded-2xl">
+                    <Droplets className="w-5 h-5 text-blue-300" />
+                    <div>
+                        <p className="text-[10px] uppercase font-bold text-white/50">Humid</p>
+                        <p className="text-sm font-bold">{weather.humidity}%</p>
+                    </div>
                 </div>
             </div>
         </div>
