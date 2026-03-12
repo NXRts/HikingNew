@@ -7,6 +7,8 @@ export interface Mountain {
   location: [number, number]; // [lat, lng]
   gpxUrl: string;
   imageUrl?: string;
+  status: "Open" | "Closed" | "Warning";
+  statusReason?: string;
 }
 
 export interface Waypoint {
