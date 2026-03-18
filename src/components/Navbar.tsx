@@ -16,7 +16,7 @@ const navLinks = [
     { name: 'Beranda', href: '/', icon: Compass },
     { name: 'Eksplor Gunung', href: '#mountains', icon: Mountain },
     { name: 'Peta Interaktif', href: '/map/merapi', icon: Map },
-    { name: 'Tips & Info', href: '#', icon: Info },
+    { name: 'Tips & Info', href: '/tips', icon: Info },
 ];
 
 export default function Navbar() {
